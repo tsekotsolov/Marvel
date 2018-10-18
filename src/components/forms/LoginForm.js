@@ -1,20 +1,23 @@
 import React, { Component } from 'react'
 import Button from '../buttons/Button'
 import createFormObj from '../../utils/createFormObj'
+import requester from './requester'
 
 class LogInForm extends Component {
 
   constructor(props) {
     super(props)
     this.state = {
-      formData:{},
-      error:''
+      formData:{}
     }
   }
 
   captureInputData = (event)=>{ 
+  
+  let stateCopy = {...this.state.formData,...createFormObj(event)}
+  
    this.setState({
-    formData:Object.assign(this.state.formData,createFormObj(event))
+    formData:stateCopy
    }) 
   
   }
@@ -22,26 +25,16 @@ class LogInForm extends Component {
   submitForm = (event)=>{
     event.preventDefault()
     
-    fetch(
-      'https://marveltest.eu.auth0.com/dbconnections/signup',
-      {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ client_id: 'CpDbnN3C4h56IEGNpuKKvoueTSLORJl4',
-        email: this.state.formData.email,
-        password: this.state.formData.password,
-        connection: 'Username-Password-Authentication',
-      })
-    }
-    ).then((response => response.json())).then(data => console.log(JSON.stringify(data)))
- 
+    requester.signIn(this.state.formData)
+      .then(data => console.log(JSON.stringify(data)))
+  
   }
 
   render () {
     
     return (
         <div className="container login-form">
-          <form className="col-md-6 m-auto" onSubmit={this.submitForm}>
+          <form className="m-auto" onSubmit={this.submitForm}>
           <div className = "image-form-holder">
             <img className='card-img-top' src='https://res.cloudinary.com/tsekotsolov/image/upload/v1539777401/Marvel/images.png' alt='marvel' />
             <h4>Sign in to your account</h4>
@@ -51,7 +44,7 @@ class LogInForm extends Component {
                 <input type="email" onChange={this.captureInputData} className="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Your Email" data-name="email"/>
               </div>
               <div className="form-group">
-                  <label htmlFor="InputPassword1">Password</label>
+                  <label htmlFor="InputPassword">Password</label>
                   <input type="password" onChange={this.captureInputData} className="form-control" id="InputPassword" placeholder="Your Password" data-name="password" />
               </div>
               <div className="form-check">
