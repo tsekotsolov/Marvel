@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import Button from '../buttons/Button'
+import Button from '../buttons/Button.jsx'
 import createFormObj from '../../utils/createFormObj'
-import requester from './requester'
+import Auth from '../../Auth/Auth'
 
 class LogInForm extends Component {
 
@@ -24,17 +24,23 @@ class LogInForm extends Component {
 
   submitForm = (event)=>{
     event.preventDefault()
-    
-    requester.signIn(this.state.formData)
-      .then(data => console.log(JSON.stringify(data)))
-  
+    const Authenticate = new Auth();
+    const action = event.target.dataset.name;
+    const{email,password} = this.state.formData
+
+   if(action==='signup'){
+    Authenticate.signup(email,password);
+    return
+   }
+    Authenticate.login(email,password);
   }
+
 
   render () {
     
     return (
         <div className="container login-form">
-          <form className="m-auto" onSubmit={this.submitForm}>
+          <form className="m-auto"  >
           <div className = "image-form-holder">
             <img className='card-img-top' src='https://res.cloudinary.com/tsekotsolov/image/upload/v1539777401/Marvel/images.png' alt='marvel' />
             <h4>Sign in to your account</h4>
@@ -50,10 +56,12 @@ class LogInForm extends Component {
               <div className="form-check">
               </div>
           <div className="buttons-form-wrapper">
-              <Button text="Submit" customClass="submit-button" type="submit"/>
-              <Button text="Log In" customClass="signin-button"/>
+              <Button text="Submit" customClass="submit-button" dataName="signup" action={this.submitForm}/>
+              <Button text="Log In" customClass="signin-button" dataName="login" action={this.submitForm}/>
           </div> 
+          
         </form>
+        
       </div>
     )
   }

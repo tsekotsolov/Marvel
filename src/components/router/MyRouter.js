@@ -1,14 +1,14 @@
 import  React from 'react';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
-import LoginForm from '../forms/LoginForm'
-import About from '../About';
+import LoginForm from '../forms/LoginForm.jsx'
+import Characters from '../Characters.jsx';
 
 const MyRouter = () => {
   return (
     <BrowserRouter>
         <Switch>
           <Route exact path="/" component={LoginForm} />
-          <Route exact path="/callback" component={About} />
+          <Route exact path="/characters" component={Characters} />
         </Switch>
     </BrowserRouter>
   );

@@ -8,7 +8,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   box-sizing:border-box;
   background-color:#FAFAFA;
- 
 }
 
   .login-form{
@@ -60,4 +59,16 @@ body {
       color:black;
       background-color: #4CAF50;
     }
+  }
+
+  .navbar-custom{
+    background-color:#F44336;
+    display:flex;
+    justify-content: space-between;
+      img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+      
   }
