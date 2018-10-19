@@ -11,6 +11,9 @@ class Characters extends React.Component {
       email:'',
       nickname:'',
       profilePicture:'',
+      per:20,
+      offset:0,
+      totalCharacters:0,
       characters:[]
     }
   
@@ -27,7 +30,6 @@ class Characters extends React.Component {
     });
 
   }
-
 
   componentWillMount(){
     
