@@ -92,4 +92,24 @@ body {
   height: 50px;
   border-radius: 50%;
 }
+
+.navbar-custom #dropdownMenuButton {
+  background: none;
+  border: none;
+  outline: none;
+  border: none;
+  outline-style: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-color: transparent;
+  margin-right: 1rem;
+}
+
+.navbar-custom .dropdown-menu {
+  min-width: 3rem;
+}
+
+.navbar-custom .dropdown-menu .dropdown-item:hover {
+  background-color: #F44336;
+}
 /*# sourceMappingURL=style.css.map */

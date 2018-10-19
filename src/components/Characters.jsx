@@ -3,19 +3,31 @@ import Auth from '../Auth/Auth'
 import history from '../history'
 import Navigation from './Navigation'
 
+// let Characters = () => {
+//   const Authenticate = new Auth()
+//   Authenticate.handleAuthentication(history)
+//   return (
+//     <section className=' container characters'>
+//       <Navigation />
+//     </section>
+//   )
+// }
 
-let Characters = () => {
+// export default Characters
 
-  const Authenticate = new Auth();
-  Authenticate.handleAuthentication(history);
-  Authenticate.getProfile()
-
-
-  return (
-    <section className=' container characters'>
-    <Navigation />
-    </section>
-  )
+class Characters extends React.Component {
+  constructor (props) {
+    super(props)
+  }
+  render () {
+    const Authenticate = new Auth()
+    Authenticate.handleAuthentication(history)
+    return (
+      <section className=' container characters'>
+        <Navigation />
+      </section>
+    )
+  }
 }
 
-export default Characters;
+export default Characters

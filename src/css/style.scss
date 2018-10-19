@@ -6,69 +6,94 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  box-sizing:border-box;
-  background-color:#FAFAFA;
+  box-sizing: border-box;
+  background-color: #FAFAFA;
 }
 
-  .login-form{
-    max-width: 50vw;
-    color:grey;
-    text-align: left;
-    background-color: white;
-    border-radius:10px;
-    padding: 2.5rem;
-    margin:2.5rem auto;
+.login-form {
+  max-width: 50vw;
+  color: grey;
+  text-align: left;
+  background-color: white;
+  border-radius: 10px;
+  padding: 2.5rem;
+  margin: 2.5rem auto;
+
+  input {
+    border-left: none;
+    border-right: none;
+    border-top: none;
+  }
+
+  label {
+    font-size: 0.9rem;
+
+  }
+
+  ::placeholder {
+    color: lightgrey;
+    font-size: 1.1rem;
+  }
+
+  .image-form-holder {
+    width: 15vw;
+  }
+
+  h4 {
+    font-size: 1.2rem;
+  }
+
+  button {
+    border: transparent;
+    border-radius: 3px;
+    padding: 0.5rem;
+    text-transform: uppercase;
+    margin: 0.2vw;
+    width: 100px;
+    cursor: pointer;
+  }
+
+  .submit-button {
+    color: white;
+    background-color: #F44336;
+  }
+
+  .signin-button {
+    color: black;
+    background-color: #4CAF50;
+  }
+}
+
+.navbar-custom {
+  background-color: #F44336;
+  display: flex;
+  justify-content: space-between;
+
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  #dropdownMenuButton {
+    background: none;
+    border: none;
+    outline: none;
+    border: none;
+    outline-style: none;
+    box-shadow: none;
+    border-color: transparent;
+    margin-right: 1rem;
+  }
+  .dropdown-menu{
+
+    min-width: 3rem;
     
-    input {
-      border-left: none;
-      border-right: none;
-      border-top:none;
+   
+    .dropdown-item:hover{
+      background-color:#F44336;
     }
 
-    label{
-      font-size:0.9rem;
-      
-    }
-    ::placeholder { 
-      color: lightgrey;
-      font-size: 1.1rem; 
-    }
-
-    .image-form-holder{
-      width:15vw;
-    }
-    h4{
-      font-size:1.2rem;
-    }
-
-    button{
-      border:transparent;
-      border-radius:3px;
-      padding: 0.5rem;
-      text-transform: uppercase;
-      margin:0.2vw;
-      width:100px;
-      cursor:pointer;
-    }
-
-    .submit-button{
-      color:white;
-      background-color: #F44336;
-    }
-    .signin-button{
-      color:black;
-      background-color: #4CAF50;
-    }
   }
 
-  .navbar-custom{
-    background-color:#F44336;
-    display:flex;
-    justify-content: space-between;
-      img{
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-    }
-      
-  }
+}

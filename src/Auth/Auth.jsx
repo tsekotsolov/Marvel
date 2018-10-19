@@ -41,7 +41,6 @@ export default class Auth {
     );  
   }
 
-  userInfo = {}
 
 
   handleAuthentication = (history) => {
@@ -54,6 +53,9 @@ export default class Auth {
         localStorage.setItem('id_token', authResult.idToken);
         localStorage.setItem('expires_at', expiresAt);
         history.replace('/characters')
+        this.getProfile((profile) => {
+          localStorage.setItem('profilePicture', profile.picture)
+        })
 
       } else if (err) {
         history.replace('/characters')
@@ -70,8 +72,7 @@ export default class Auth {
         console.log(err)
         return
       }
-      this.userInfo=profile
-      localStorage.setItem('profilePicture', profile.picture);
+      callback(profile)
     });
   }
 }
