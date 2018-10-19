@@ -12,7 +12,7 @@ class LogInForm extends Component {
     }
   }
 
-  captureInputData = (event)=>{ 
+  captureInputData = (event)=> { 
   
   let stateCopy = {...this.state.formData,...createFormObj(event)}
   

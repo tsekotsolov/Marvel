@@ -41,38 +41,40 @@ export default class Auth {
     );  
   }
 
+   handleAuthentication = (history) => {
+    return new Promise((resolve, reject) => {
+      this.auth0.parseHash((err, authResult) => {
+        if (authResult) {
+          let expiresAt = JSON.stringify(authResult.expiresIn * 1000 + new Date().getTime());
+          localStorage.setItem('access_token', authResult.accessToken);
+          localStorage.setItem('id_token', authResult.idToken);
+          localStorage.setItem('expires_at', expiresAt);
+          history.replace('/characters')
+          resolve(authResult);
+        } else if (err) {
+          history.replace('/characters')
+          reject(err);
+          console.log(err);
+        }
+      });
+  });
+  }
 
-
-  handleAuthentication = (history) => {
-    this.auth0.parseHash((err, authResult) => {
-
-      if (authResult && authResult.accessToken && authResult.idToken) {
-
-        let expiresAt = JSON.stringify(authResult.expiresIn * 1000 + new Date().getTime());
-        localStorage.setItem('access_token', authResult.accessToken);
-        localStorage.setItem('id_token', authResult.idToken);
-        localStorage.setItem('expires_at', expiresAt);
-        history.replace('/characters')
-        this.getProfile((profile) => {
-          localStorage.setItem('profilePicture', profile.picture)
-        })
-
-      } else if (err) {
-        history.replace('/characters')
-        console.log(err);
-      }
+  getProfile = () => {
+    return new Promise((resolve, reject) => {
+      let accessToken = localStorage.getItem('access_token')
+      this.auth0.client.userInfo(accessToken, (err, profile) => {
+        if(err){
+          console.log(err)
+          reject(err)
+          return
+        }
+        resolve(profile);
+        localStorage.setItem('profilePicture', profile.picture)
+        localStorage.setItem('email',profile.email)
+        localStorage.setItem('nickname',profile.nickname)
+      });
     });
   }
 
-  getProfile = (callback) => {
-
-    let accessToken = localStorage.getItem('access_token')
-    this.auth0.client.userInfo(accessToken, (err, profile) => {
-      if(err){
-        console.log(err)
-        return
-      }
-      callback(profile)
-    });
-  }
 }

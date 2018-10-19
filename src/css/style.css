@@ -112,4 +112,8 @@ body {
 .navbar-custom .dropdown-menu .dropdown-item:hover {
   background-color: #F44336;
 }
+
+.characters {
+  margin-top: 6rem;
+}
 /*# sourceMappingURL=style.css.map */

@@ -1,7 +1,8 @@
 import  React from 'react';
-import { Route, BrowserRouter, Switch } from 'react-router-dom';
+import { Route, BrowserRouter, Switch } from 'react-router-dom'
 import LoginForm from '../forms/LoginForm.jsx'
-import Characters from '../Characters.jsx';
+import Characters from '../Characters.jsx'
+
 
 const MyRouter = () => {
   return (

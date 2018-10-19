@@ -1,4 +1,4 @@
-let requester = {
+const requester = {
   signIn: (data) => {
     return fetch(
       'https://marveltest.eu.auth0.com/dbconnections/signup',
@@ -12,6 +12,18 @@ let requester = {
         })
       }
     ).then(response => response.json())
+  },
+
+  fetchAllCharacters: ()=>{
+
+    return fetch(
+      'https://gateway.marvel.com:443/v1/public/characters?apikey=a5a9a5c29885db559237f9ce40d2cac1',{
+        method:'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+    }).then(response=>response.json())
+  
   }
 }
 
