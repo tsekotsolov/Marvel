@@ -7,12 +7,12 @@ import Character from './Charcter'
 
 class Characters extends React.Component {
 
-    state={
+    state = {
       email:'',
       nickname:'',
       profilePicture:'',
-      per:20,
-      offset:0,
+      itmsPerFetch:20,
+      offset:'',
       totalCharacters:0,
       characters:[]
     }
@@ -28,7 +28,6 @@ class Characters extends React.Component {
         });
       })
     });
-
   }
 
   componentWillMount(){
@@ -37,32 +36,33 @@ class Characters extends React.Component {
     {
       console.log(response)
       this.setState({
-        characters:response.data.results
+        characters:response.data.results,
+        offset:response.data.offset
       })
     }
     )
   }
 
   render () {
-
     return (
       <React.Fragment>
         <Navigation  />      
         <section className='characters'>
         <div className='container text-center'>
-          <h2  className='mb-3'>Characters</h2>
+        <h2>Characters</h2>
+          <div className="row">
           {this.state.characters?
-          <div className='row justify-content-center'>
+          <div className='row justify-content-left'>
           { this.state.characters.map((character) => {
           return <Character key={character.id} {...character} />
           })}
           </div>
           :null}
+          </div>
         </div>
       </section>
     </React.Fragment>
     )
   }
 }
-
 export default Characters

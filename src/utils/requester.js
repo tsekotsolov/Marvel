@@ -14,16 +14,14 @@ const requester = {
     ).then(response => response.json())
   },
 
-  fetchAllCharacters: ()=>{
-
+  fetchAllCharacters: () => {
     return fetch(
-      'https://gateway.marvel.com:443/v1/public/characters?apikey=a5a9a5c29885db559237f9ce40d2cac1',{
-        method:'GET',
+      'https://gateway.marvel.com:443/v1/public/characters?apikey=a5a9a5c29885db559237f9ce40d2cac1', {
+        method: 'GET',
         headers: {
           'Content-Type': 'application/json'
         }
-    }).then(response=>response.json())
-  
+      }).then(response => response.json())
   }
 }
 

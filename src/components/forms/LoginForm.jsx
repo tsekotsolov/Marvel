@@ -41,9 +41,9 @@ class LogInForm extends Component {
     return (
         <div className="container login-form">
           <form className="m-auto"  >
-          <div className = "image-form-holder">
+          <div className = "image-form-holder mb-3">
             <img className='card-img-top' src='https://res.cloudinary.com/tsekotsolov/image/upload/v1539777401/Marvel/images.png' alt='marvel' />
-            <h4>Sign in to your account</h4>
+            <h4 className="mt-3">Sign in to your account</h4>
           </div> 
               <div className="form-group">
                 <label htmlFor="InputEmail">Email</label>
@@ -59,7 +59,6 @@ class LogInForm extends Component {
               <Button text="Submit" customClass="submit-button" dataName="signup" action={this.submitForm}/>
               <Button text="Log In" customClass="signin-button" dataName="login" action={this.submitForm}/>
           </div> 
-          
         </form>
         
       </div>
