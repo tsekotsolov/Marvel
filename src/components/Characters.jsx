@@ -8,8 +8,7 @@ import Character from './Charcter'
 class Characters extends React.Component {
 
     state = {
-      email:'',
-      profilePicture:'',
+      
       itmsPerFetch:20,
       offset:0,
       totalCharacters:0,
@@ -26,9 +25,9 @@ class Characters extends React.Component {
         this.setState({
           email: profile.email, 
           profilePicture: profile.picture
-        });
+        })
       })
-    });
+    })
 
     window.addEventListener('scroll',()=>{
       this.handleScroll()
@@ -38,7 +37,6 @@ class Characters extends React.Component {
   componentWillMount(){
     requester.fetchAllCharacters(this.state.offset).then((response)=>
     {
-      console.log(response)
       this.setState({
         characters:[...this.state.characters,...response.data.results],
         offset:response.data.offset,

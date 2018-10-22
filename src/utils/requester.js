@@ -22,7 +22,30 @@ const requester = {
           'Content-Type': 'application/json'
         }
       }).then(response => response.json())
-  }
+  },
+
+
+  fetchDetailCharacter: (id,offset) => {
+    return fetch(
+      `https://gateway.marvel.com:443/v1/public/characters/${id}/comics?offset=${offset}&apikey=a5a9a5c29885db559237f9ce40d2cac1
+      `, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(response => response.json())
+  },
+
+  fetchCharacterName: (id) => {
+    return fetch(
+      `https://gateway.marvel.com:443/v1/public/characters/${id}?apikey=a5a9a5c29885db559237f9ce40d2cac1`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(response => response.json())
+  },
+
 }
 
 export default requester
