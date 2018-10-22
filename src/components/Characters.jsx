@@ -3,38 +3,28 @@ import Auth from '../Auth/Auth'
 import history from '../history'
 import Navigation from './Navigation'
 import requester from '../utils/requester'
-import Character from './Charcter'
+import Card from './Card'
 
 class Characters extends React.Component {
 
-    state = {
-      
-      itmsPerFetch:20,
+    state = { 
+      itemsPerFetch:20,
       offset:0,
       totalCharacters:0,
       scrolling:false,
-      characters:[]
+      characters:[],
     }
   
-
   componentDidMount(){
     const Authenticate = new Auth();
     Authenticate.handleAuthentication(history).then(() => {
       Authenticate.getProfile().then((profile) => {
-        
-        this.setState({
-          email: profile.email, 
-          profilePicture: profile.picture
-        })
+        return profile
       })
     })
 
-    window.addEventListener('scroll',()=>{
-      this.handleScroll()
-    })
-  }
+    window.addEventListener('scroll',this.handleScroll,true)
 
-  componentWillMount(){
     requester.fetchAllCharacters(this.state.offset).then((response)=>
     {
       this.setState({
@@ -48,16 +38,14 @@ class Characters extends React.Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll',()=>{
-      this.handleScroll()
-    })
+    window.removeEventListener('scroll',this.handleScroll,true)
 }
 
   handleScroll=()=>{
-    
+   
     const {totalCharacters,characters, scrolling} = this.state
     if(scrolling || characters.length >= totalCharacters)  return
-    const lastElementRendered = document.querySelector('div.wrapper > a:last-child')
+    const lastElementRendered = document.querySelector('div.wrapper > div:last-child')
     if(lastElementRendered){
       const lastElementRenderedOffset = lastElementRendered.offsetTop + lastElementRendered.clientHeight    
       const pageOffset = window.pageYOffset + window.innerHeight
@@ -70,7 +58,7 @@ class Characters extends React.Component {
 
   loadMore = ()=>{
     this.setState(prevState=>({
-      offset: prevState.offset+prevState.itmsPerFetch,
+      offset: prevState.offset+prevState.itemsPerFetch,
       scrolling:true
     }),()=>{
       requester.fetchAllCharacters(this.state.offset).then((response)=>
@@ -85,6 +73,7 @@ class Characters extends React.Component {
     })
   }
 
+
   render () {
     return (
       <React.Fragment>
@@ -96,7 +85,7 @@ class Characters extends React.Component {
           {this.state.characters?
           <div className='row justify-content-left wrapper'>
           { this.state.characters.map((character) => {
-          return <Character key={character.id} {...character} />
+          return <Card key={character.id} {...character} manageFavArray={this.props.manageFavArray} appState={this.props.appState}/>
           })}
           </div>
           :null}

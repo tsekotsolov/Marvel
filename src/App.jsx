@@ -5,12 +5,35 @@ import MyRouter from './components/router/MyRouter'
 
 
 class App extends Component {
-  render() {
+  
+  state = { 
+    favArray:[]
+  }
+
+  manageFavArray=(item,action)=>{
     
+    let {favArray}=this.state
+
+    if(action==='add'){
+      favArray.push(item)
+      this.setState({
+        favArray
+      })
+    }else{
+      const index = favArray.indexOf(item);
+        if (index > -1) {
+          favArray.splice(index, 1);
+        }
+        this.setState({
+          favArray
+        })
+    }
+  }
+
+  render() {
     return (
-     
       <div className="App">
-      <MyRouter />  
+      <MyRouter manageFavArray={this.manageFavArray} appState={this.state}/>  
       </div>
     );
   }

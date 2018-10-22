@@ -123,14 +123,26 @@ body {
 }
 
 .characters {
-  a:hover{
-    text-decoration: none;
+  font-family:Verdana, Tahoma, sans-serif;
+ 
+  margin-top: 6rem;
+  a {
+    color:#F44336;
+    &:hover{
+      text-decoration: none;
+    }
   }
 
-  margin-top: 6rem;
+  .link-wrapper{
+  
+    margin: 1rem;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+  }
+
   h2{
     font-size:3rem;
-    letter-spacing: 0.2rem;
   }
 
   .card {

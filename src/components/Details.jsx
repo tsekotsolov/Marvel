@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import requester from '../utils/requester'
 import Navigation from './Navigation'
-import Character from './Charcter'
+import Card from './Card'
 
  class Details extends Component {
 
     constructor (props) {
         super(props)
+
         this.state={
             offset:20,
             commics:[], 
@@ -21,17 +22,14 @@ import Character from './Charcter'
             this.setState({
                 name:response.data.results[0].name})
           })
-      }
-    
-      componentWillMount () {
-        
-        requester.fetchDetailCharacter(this.state.id,this.state.offset).then((response)=>{
+
+          requester.fetchDetailCharacter(this.state.id,this.state.offset).then((response)=>{
             this.setState({
                 commics:[...this.state.commics,...response.data.results],
               })
         })
-
       }
+
 
   render() {
       return (
@@ -44,7 +42,7 @@ import Character from './Charcter'
             {this.state.commics?
             <div className='row justify-content-left wrapper'>
             { this.state.commics.map((com) => {
-            return <Character key={com.id} {...com} />
+            return <Card key={com.id} {...com} />
             })}
             </div>
             :null}

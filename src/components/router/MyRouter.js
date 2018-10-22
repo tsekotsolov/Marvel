@@ -5,12 +5,12 @@ import Characters from '../Characters.jsx'
 import Details from '../Details'
 
 
-const MyRouter = () => {
+const MyRouter = (props) => {
   return (
     <BrowserRouter>
         <Switch>
           <Route exact path="/" component={LoginForm} />
-          <Route exact path="/characters" component={Characters} />
+          <Route exact path="/characters" render={() => <Characters {...props} />} />
           <Route exact path="/character-details" component={Details} />
         </Switch>
     </BrowserRouter>
