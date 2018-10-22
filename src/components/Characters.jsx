@@ -9,11 +9,11 @@ class Characters extends React.Component {
 
     state = {
       email:'',
-      nickname:'',
       profilePicture:'',
       itmsPerFetch:20,
-      offset:'',
+      offset:0,
       totalCharacters:0,
+      scrolling:false,
       characters:[]
     }
   
@@ -22,25 +22,69 @@ class Characters extends React.Component {
     const Authenticate = new Auth();
     Authenticate.handleAuthentication(history).then(() => {
       Authenticate.getProfile().then((profile) => {
+        
         this.setState({
           email: profile.email, 
           profilePicture: profile.picture
         });
       })
     });
+
+    window.addEventListener('scroll',()=>{
+      this.handleScroll()
+    })
   }
 
   componentWillMount(){
-    
-    requester.fetchAllCharacters().then((response)=>
+    requester.fetchAllCharacters(this.state.offset).then((response)=>
     {
       console.log(response)
       this.setState({
-        characters:response.data.results,
-        offset:response.data.offset
+        characters:[...this.state.characters,...response.data.results],
+        offset:response.data.offset,
+        totalCharacters:response.data.total,
+        scrolling:false
       })
     }
     )
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll',()=>{
+      this.handleScroll()
+    })
+}
+
+  handleScroll=()=>{
+    
+    const {totalCharacters,characters, scrolling} = this.state
+    if(scrolling || characters.length >= totalCharacters)  return
+    const lastElementRendered = document.querySelector('div.wrapper > a:last-child')
+    if(lastElementRendered){
+      const lastElementRenderedOffset = lastElementRendered.offsetTop + lastElementRendered.clientHeight    
+      const pageOffset = window.pageYOffset + window.innerHeight
+      const bottomOffset = 25
+      if(pageOffset>lastElementRenderedOffset-bottomOffset) {
+        this.loadMore()
+      }
+    }
+  }
+
+  loadMore = ()=>{
+    this.setState(prevState=>({
+      offset: prevState.offset+prevState.itmsPerFetch,
+      scrolling:true
+    }),()=>{
+      requester.fetchAllCharacters(this.state.offset).then((response)=>
+    {
+      this.setState({
+        characters:[...this.state.characters,...response.data.results],
+        offset:response.data.offset,
+        scrolling:false
+      })
+    }
+    )
+    })
   }
 
   render () {
@@ -52,7 +96,7 @@ class Characters extends React.Component {
         <h2>Characters</h2>
           <div className="row">
           {this.state.characters?
-          <div className='row justify-content-left'>
+          <div className='row justify-content-left wrapper'>
           { this.state.characters.map((character) => {
           return <Character key={character.id} {...character} />
           })}

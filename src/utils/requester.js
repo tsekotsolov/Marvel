@@ -14,9 +14,9 @@ const requester = {
     ).then(response => response.json())
   },
 
-  fetchAllCharacters: () => {
+  fetchAllCharacters: (offset) => {
     return fetch(
-      'https://gateway.marvel.com:443/v1/public/characters?apikey=a5a9a5c29885db559237f9ce40d2cac1', {
+      `https://gateway.marvel.com:443/v1/public/characters?offset=${offset}&apikey=a5a9a5c29885db559237f9ce40d2cac1`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'
