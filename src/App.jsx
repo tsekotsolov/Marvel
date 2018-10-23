@@ -7,7 +7,7 @@ import MyRouter from './components/router/MyRouter'
 class App extends Component {
   
   state = { 
-    favArray:[]
+    favArray:[],
   }
 
   manageFavArray=(item,action)=>{
@@ -39,4 +39,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App

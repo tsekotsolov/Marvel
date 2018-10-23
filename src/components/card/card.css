@@ -1,0 +1,28 @@
+.card {
+  margin: 0.4rem;
+}
+
+.card .card-text {
+  color: gray;
+}
+
+.card a {
+  color: #F44336;
+}
+
+.card a:hover {
+  text-decoration: none;
+}
+
+.card .link-wrapper {
+  margin: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+/*# sourceMappingURL=card.css.map */

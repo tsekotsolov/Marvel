@@ -1,0 +1,22 @@
+.card {
+    margin: 0.4rem;
+
+    .card-text {
+      color: gray;
+    }
+
+    a {
+      color: #F44336;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    .link-wrapper {
+
+      margin: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }

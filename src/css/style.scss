@@ -4,6 +4,7 @@
 }
 @import '../components/forms/loginForm.scss';
 @import '../components/navigation/navigaton.scss';
+@import '../components/card/card.scss';
 
 body {
   font-family: Avengeance;
@@ -20,34 +21,8 @@ body {
 
 .characters {
   font-family: Verdana, Tahoma, sans-serif;
-
-  margin-top: 6rem;
-
-  a {
-    color: #F44336;
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
-
-  .link-wrapper {
-
-    margin: 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
   h2 {
     font-size: 3rem;
   }
-
-  .card {
-    margin: 0.4rem;
-
-    .card-text {
-      color: gray;
-    }
-  }
+  margin-top: 6rem;
 }

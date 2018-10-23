@@ -132,6 +132,34 @@ button {
   background-color: #F44336;
 }
 
+.card {
+  margin: 0.4rem;
+}
+
+.card .card-text {
+  color: gray;
+}
+
+.card a {
+  color: #F44336;
+}
+
+.card a:hover {
+  text-decoration: none;
+}
+
+.card .link-wrapper {
+  margin: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 body {
   font-family: Avengeance;
   margin: 0;
@@ -149,35 +177,7 @@ body {
   margin-top: 6rem;
 }
 
-.characters a {
-  color: #F44336;
-}
-
-.characters a:hover {
-  text-decoration: none;
-}
-
-.characters .link-wrapper {
-  margin: 1rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
 .characters h2 {
   font-size: 3rem;
-}
-
-.characters .card {
-  margin: 0.4rem;
-}
-
-.characters .card .card-text {
-  color: gray;
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,5 +1,4 @@
 import React from 'react'
-import requester from '../../utils/requester'
 
 const withScroll = (WrappedComponent) => {
   return class extends React.Component {
@@ -14,8 +13,7 @@ const withScroll = (WrappedComponent) => {
       }
     }
 
-    handleScroll = ()=>{
-   
+    handleScroll = () => {
         const {totalItems,itemsArray, scrolling} = this.state
         if(scrolling || itemsArray.length >= totalItems)  return
         const lastElementRendered = document.querySelector('div.wrapper > div:last-child')
@@ -34,23 +32,31 @@ const withScroll = (WrappedComponent) => {
           offset: prevState.offset+prevState.itemsPerFetch,
           scrolling:true
         }),()=>{
-          this.props.fetchData(this.state.offset).then((response)=>
-        {
-          this.setState({
-            itemsArray:[...this.state.itemsArray,...response.data.results],
-            offset:response.data.offset,
-            scrolling:false
+            this.props.fetchData(this.state.offset).then((response)=>
+          {
+            const withImages = this.filterArrayByImages(response)
+
+            this.setState({
+              itemsArray:[...this.state.itemsArray,...withImages],
+              offset:response.data.offset,
+              scrolling:false
+            })
           })
-        }
-        )
         })
+      }
+
+      filterArrayByImages = (array) =>{
+      return array.data.results
+        .filter(character=>!character.thumbnail.path.endsWith('not_available'))
       }
 
     componentDidMount () {
         this.props.fetchData(this.state.offset).then((response)=>
         {
+           const withImages = this.filterArrayByImages(response)
+
           this.setState({
-            itemsArray:[...this.state.itemsArray,...response.data.results],
+            itemsArray:[...this.state.itemsArray,...withImages],
             offset:response.data.offset,
             totalItems:response.data.total,
             scrolling:false

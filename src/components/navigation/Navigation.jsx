@@ -14,6 +14,7 @@ let Navigation = (props) => {
         </button>
         <div className='dropdown-menu' aria-labelledby='dropdownMenuButton'>
           <Link to='/' className='dropdown-item'>User Info</Link>
+          <Link to='/favorites' className='dropdown-item'>Favorites</Link>
           <Link to='/' className='dropdown-item' onClick={() => localStorage.clear()} >Logout</Link>
         </div>
       </div>

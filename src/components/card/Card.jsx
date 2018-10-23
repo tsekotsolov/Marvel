@@ -10,7 +10,7 @@ const Card = (props) => {
           <div className='card-body'>
             {name ? <p className='card-text'>{`${name}`}</p> : <p className='card-text'>{`${title}`}</p>}
           </div>
-          <img className='card-img-top' src={`${thumbnail.path}/portrait_fantastic.${thumbnail.extension}`} alt='Card cap' />
+          <img className='card-img-top' src={`${thumbnail.path}.${thumbnail.extension}`} alt='Card cap' />
           {name
             ? <CardFooter {...props} />
             : null}
