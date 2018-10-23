@@ -4,9 +4,11 @@ import {Link} from 'react-router-dom'
 class Card extends React.Component{
 
   toggleFavourites=()=>{  
+
+    const {favArray} = this.props.appState
     
     let action;
-    if(this.props.appState.favArray.includes(this.props.id)){
+    if(favArray.includes(this.props.id)){
       action='remove'
     }else{
       action='add'
