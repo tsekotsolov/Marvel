@@ -24,8 +24,7 @@ const requester = {
       }).then(response => response.json())
   },
 
-
-  fetchDetailCharacter: (id,offset) => {
+  fetchDetailCharacter: (id, offset) => {
     return fetch(
       `https://gateway.marvel.com:443/v1/public/characters/${id}/comics?offset=${offset}&apikey=a5a9a5c29885db559237f9ce40d2cac1
       `, {
@@ -44,7 +43,7 @@ const requester = {
           'Content-Type': 'application/json'
         }
       }).then(response => response.json())
-  },
+  }
 
 }
 

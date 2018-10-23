@@ -3,16 +3,24 @@
   src: url("../assets/fonts/AVENGEANCE.ttf");
 }
 
-body {
-  font-family: Avengeance;
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Avengeance", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  background-color: #FAFAFA;
+button {
+  border: transparent;
+  border-radius: 3px;
+  padding-top: 0.5rem;
+  text-transform: uppercase;
+  margin: 0.2vw;
+  width: 100px;
+  cursor: pointer;
+}
+
+.submit-button {
+  color: white;
+  background-color: #F44336;
+}
+
+.signin-button {
+  color: black;
+  background-color: #4CAF50;
 }
 
 .login-form {
@@ -88,26 +96,6 @@ body {
   font-size: 1.2rem;
 }
 
-.login-form button {
-  border: transparent;
-  border-radius: 3px;
-  padding-top: 0.5rem;
-  text-transform: uppercase;
-  margin: 0.2vw;
-  width: 100px;
-  cursor: pointer;
-}
-
-.login-form .submit-button {
-  color: white;
-  background-color: #F44336;
-}
-
-.login-form .signin-button {
-  color: black;
-  background-color: #4CAF50;
-}
-
 .navbar-custom {
   background-color: #F44336;
   display: -webkit-box;
@@ -142,6 +130,18 @@ body {
 
 .navbar-custom .dropdown-menu .dropdown-item:hover {
   background-color: #F44336;
+}
+
+body {
+  font-family: Avengeance;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Avengeance", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #FAFAFA;
 }
 
 .characters {

@@ -2,12 +2,14 @@
   font-family: "Avengeance";
   src: url('../assets/fonts/AVENGEANCE.ttf');
 }
+@import '../components/forms/loginForm.scss';
+@import '../components/navigation/navigaton.scss';
 
 body {
-  font-family:Avengeance;
+  font-family: Avengeance;
   margin: 0;
   padding: 0;
-  font-family:  -apple-system, BlinkMacSystemFont, "Avengeance", "Segoe UI", "Roboto", "Oxygen",
+  font-family: -apple-system, BlinkMacSystemFont, "Avengeance", "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -16,140 +18,36 @@ body {
   background-color: #FAFAFA;
 }
 
-.login-form {
-  max-width: 50vw;
-  color: grey;
-  text-align: left;
-  background-color: white;
-  border-radius: 10px;
-  padding: 2.5rem;
-  margin: 2.5rem auto;
-
-  input {
-    -webkit-transition: all 0.30s ease-in-out;
-    -moz-transition: all 0.30s ease-in-out;
-    -ms-transition: all 0.30s ease-in-out;
-    -o-transition: all 0.30s ease-in-out;
-    outline: none;
-    padding: 3px 0px 3px 3px;
-    margin: 5px 1px 3px 0px;
-    border: 1px solid #DDDDDD; 
-
-    &::placeholder {
-      color: lightgrey;
-      font-size: 0.9rem;
-    }
-
-    &:focus {
-      box-shadow: 0 0 5px rgba(244, 67, 54, 1);
-      padding: 3px 0px 3px 3px;
-      margin: 5px 1px 3px 0px;
-      border: 1px solid rgba(244, 67, 54, 1);
-    }
-  }
-
-  input[type="password"]{
-    font-family:Verdana, Tahoma, sans-serif;
-    &::-webkit-input-placeholder{
-      font-family: Avengeance;
-    }
-    &::-ms-input-placeholder{
-      font-family: Avengeance;
-    }
-  }
-
-  label {
-    font-size: 0.9rem;
-  }
-
-  .image-form-holder {
-    width: 15vw;
-  }
-
-  h4 {
-    font-size: 1.2rem;
-  }
-
-  button {
-    border: transparent;
-    border-radius: 3px;
-    padding-top: 0.5rem;
-    text-transform: uppercase;
-    margin: 0.2vw;
-    width: 100px;
-    cursor: pointer;
-  }
-
-  .submit-button {
-    color: white;
-    background-color: #F44336;
-  }
-
-  .signin-button {
-    color: black;
-    background-color: #4CAF50;
-  }
-}
-
-.navbar-custom {
-  background-color: #F44336;
-  display: flex;
-  justify-content: space-between;
-
-  img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-  }
-
-  #dropdownMenuButton {
-    background: none;
-    border: none;
-    outline: none;
-    border: none;
-    outline-style: none;
-    box-shadow: none;
-    border-color: transparent;
-    margin-right: 1rem;
-  }
-
-  .dropdown-menu {
-
-    min-width: 3rem;
-    .dropdown-item:hover {
-      background-color: #F44336;
-    }
-  }
-}
-
 .characters {
-  font-family:Verdana, Tahoma, sans-serif;
- 
+  font-family: Verdana, Tahoma, sans-serif;
+
   margin-top: 6rem;
+
   a {
-    color:#F44336;
-    &:hover{
+    color: #F44336;
+
+    &:hover {
       text-decoration: none;
     }
   }
 
-  .link-wrapper{
-  
+  .link-wrapper {
+
     margin: 1rem;
     display: flex;
-    flex-wrap:wrap;
-    justify-content:space-between;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
-  h2{
-    font-size:3rem;
+  h2 {
+    font-size: 3rem;
   }
 
   .card {
     margin: 0.4rem;
-    .card-text{
-      color:gray;     
+
+    .card-text {
+      color: gray;
     }
   }
 }
-

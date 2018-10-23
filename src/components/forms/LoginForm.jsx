@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Button from '../buttons/Button.jsx'
 import createFormObj from '../../utils/createFormObj'
-import Auth from '../../Auth/Auth'
+import Auth from '../../auth/Auth'
 
 class LogInForm extends Component {
 
@@ -14,7 +14,7 @@ class LogInForm extends Component {
 
   captureInputData = (event)=> { 
   
-  let stateCopy = {...this.state.formData,...createFormObj(event)}
+  const stateCopy = {...this.state.formData,...createFormObj(event)}
   
    this.setState({
     formData:stateCopy
@@ -29,12 +29,11 @@ class LogInForm extends Component {
     const{email,password} = this.state.formData
 
    if(action==='signup'){
-    Authenticate.signup(email,password);
+    Authenticate.signup(email,password)
     return
    }
     Authenticate.login(email,password);
   }
-
 
   render () {
     
@@ -47,20 +46,17 @@ class LogInForm extends Component {
           </div> 
               <div className="form-group">
                 <label htmlFor="InputEmail">Email</label>
-                <input type="email" onChange={this.captureInputData} className="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Your Email" data-name="email"/>
+                <input type="email" onChange={this.captureInputData} className="form-control" id="InputEmail" placeholder="Your Email" data-name="email"/>
               </div>
               <div className="form-group">
                   <label htmlFor="InputPassword">Password</label>
                   <input type="password" onChange={this.captureInputData} className="form-control" id="InputPassword" placeholder="Your Password" data-name="password" />
-              </div>
-              <div className="form-check">
               </div>
           <div className="buttons-form-wrapper">
               <Button text="Submit" customClass="submit-button" dataName="signup" action={this.submitForm}/>
               <Button text="Log In" customClass="signin-button" dataName="login" action={this.submitForm}/>
           </div> 
         </form>
-        
       </div>
     )
   }
