@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/style.css'
-import MyRouter from './components/router/MyRouter'
+import Router from './components/router/Router.jsx'
+import {BrowserRouter} from 'react-router-dom'
 
 
 class App extends Component {
@@ -12,7 +13,7 @@ class App extends Component {
 
   manageFavArray=(item,action)=>{
     
-    let {favArray}=this.state
+    let favArray=[...this.state.favArray]
 
     if(action==='add'){
       favArray.push(item)
@@ -32,9 +33,11 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-      <MyRouter manageFavArray={this.manageFavArray} appState={this.state}/>  
-      </div>
+      <BrowserRouter>
+        <div className="App">
+           <Router manageFavArray={this.manageFavArray} appState={this.state}/>  
+        </div>
+      </BrowserRouter>
     );
   }
 }

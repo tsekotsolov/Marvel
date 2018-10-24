@@ -54,7 +54,6 @@ export default class Auth {
         } else if (err) {
           history.replace('/characters')
           reject(err);
-          console.log(err);
         }
       });
   });

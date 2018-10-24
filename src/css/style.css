@@ -148,6 +148,10 @@ button {
   text-decoration: none;
 }
 
+.card p.card-text {
+  font-size: 0.95rem;
+}
+
 .card .link-wrapper {
   margin: 1rem;
   display: -webkit-box;

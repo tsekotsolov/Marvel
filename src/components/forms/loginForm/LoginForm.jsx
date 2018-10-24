@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import Button from '../buttons/Button.jsx'
-import createFormObj from '../../utils/createFormObj'
-import Auth from '../../auth/Auth'
+import Button from '../../buttons/Button.jsx'
+import createFormObj from '../../../utils/createFormObj'
+import Auth from '../../../auth/Auth'
 
 class LogInForm extends Component {
 
@@ -15,7 +15,6 @@ class LogInForm extends Component {
   captureInputData = (event)=> { 
   
   const stateCopy = {...this.state.formData,...createFormObj(event)}
-  
    this.setState({
     formData:stateCopy
    }) 
