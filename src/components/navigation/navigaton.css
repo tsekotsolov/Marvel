@@ -4,8 +4,8 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
 .navbar-custom img {
@@ -21,7 +21,7 @@
   border: none;
   outline-style: none;
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   border-color: transparent;
   margin-right: 1rem;
 }
@@ -33,4 +33,5 @@
 .navbar-custom .dropdown-menu .dropdown-item:hover {
   background-color: #F44336;
 }
+
 /*# sourceMappingURL=navigaton.css.map */

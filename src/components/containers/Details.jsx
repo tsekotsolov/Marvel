@@ -1,99 +1,73 @@
-import React, { Component } from 'react'
-import requester from '../../utils/requester'
-import Navigation from '../navigation/Navigation'
-import Card from '../card/Card'
-
+import React, { Component } from "react";
+import "./container.css";
+import Navigation from "../navigation/Navigation";
+import Card from "../card/Card";
+import { connect } from "react-redux";
+import { GET_DETAILS } from "./../../actions/types";
+import {
+  getDetails,
+  clearDetails,
+  detailsOffset,
+  clearDetailsOffset
+} from "../../actions/details";
 
 class Details extends Component {
-  constructor (props) {
-    super(props)
-
-    this.state = {
-      itemsPerFetch: 20,
-      offset: 0,
-      totalItems: 0,
-      scrolling: false,
-      itemsArray: [],
-      id: this.props.location.search.substr(1),
-      name: ''
-    }
-  }
-
-  componentDidMount () {
-    requester.fetchCharacterName(this.state.id).then((response) => {
-      this.setState({
-        name: response.data.results[0].name })
-    })
-
-    requester.fetchDetailCharacter(this.state.id, this.state.offset).then((response) => {
-      
-      this.setState({
-        itemsArray:[...this.state.itemsArray,...response.data.results],
-        offset:response.data.offset,
-        totalItems:response.data.total,
-        scrolling:false
+  componentDidMount() {
+    this.props.dispatch(
+      getDetails({
+        type: GET_DETAILS,
+        id: this.props.location.search.substr(1),
+        offset: this.props.detailsOffset
       })
-    })
-
-    window.addEventListener('scroll', this.handleScroll, true)
+    );
+    window.addEventListener("scroll", this.onScroll, false);
   }
 
-  componentWillUnmount () {
-    window.removeEventListener('scroll', this.handleScroll, true)
+  componentWillUnmount() {
+    this.props.dispatch(clearDetails());
+    this.props.dispatch(clearDetailsOffset());
+    window.removeEventListener("scroll", this.onScroll, false);
   }
 
-  handleScroll = () => {
-    const {totalItems,itemsArray, scrolling} = this.state
-    if(scrolling || itemsArray.length >= totalItems)  return
-    const lastElementRendered = document.querySelector('div.wrapper > div:last-child')
-    if(lastElementRendered){
-      const lastElementRenderedOffset = lastElementRendered.offsetTop + lastElementRendered.clientHeight    
-      const pageOffset = window.pageYOffset + window.innerHeight
-      const bottomOffset = 25
-      if(pageOffset>lastElementRenderedOffset-bottomOffset) {
-        this.loadMore()
-      }
+  onScroll = event => {
+    if (
+      event.target.scrollingElement.scrollHeight -
+        event.target.scrollingElement.scrollTop <=
+      event.target.scrollingElement.clientHeight
+    ) {
+      this.props.dispatch(detailsOffset());
+      this.props.dispatch(
+        getDetails({
+          type: GET_DETAILS,
+          id: this.props.location.search.substr(1),
+          offset: this.props.detailsOffset
+        })
+      );
     }
-}
+  };
 
-loadMore = ()=>{
-    this.setState(prevState=>({
-      offset: prevState.offset+prevState.itemsPerFetch,
-      scrolling:true
-    }),()=>{
-      requester.fetchDetailCharacter(this.state.id,this.state.offset).then((response)=>
-    {
-      this.setState({
-        itemsArray:[...this.state.itemsArray,...response.data.results],
-        offset:response.data.offset,
-        scrolling:false
-      })
-    }
-    )
-    })
-  }
-
-  render () {
+  render() {
     return (
       <React.Fragment>
         <Navigation />
-        <section className='characters'>
-          <div className='container text-center'>
-            <h2>Details for {this.state.name}</h2>
-            <div className='row'>
-              {this.state.itemsArray
-                ? <div className='row justify-content-left wrapper'>
-                  { this.state.itemsArray.map((com) => {
-                    return <Card key={com.id} {...com} />
-                  })}
-                </div>
-                : null}
+        <section className="characters">
+          <div className="container text-center">
+            <div className="row justify-content-left wrapper">
+              {this.props.details.map(comics => {
+                return <Card key={comics.id} {...comics} />;
+              })}
             </div>
           </div>
         </section>
       </React.Fragment>
-    )
+    );
   }
 }
 
-export default Details
+const mapstateToProps = state => ({
+  isAuth: state.isAuth,
+  details: state.details,
+  detailsOffset: state.detailsOffset
+});
+
+export default connect(mapstateToProps)(Details);

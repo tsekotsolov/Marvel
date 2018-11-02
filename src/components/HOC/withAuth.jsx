@@ -1,25 +1,13 @@
-import React from 'react'
-import history from '../../history'
-import Auth from '../../auth/Auth'
-
+import React from 'react';
+import Auth from '../../auth/Auth';
+import LoginForm from '../forms/loginForm/LoginForm';
 const withAuth = (WrappedComponent) => {
-  return class extends React.Component {
-    authorize = ()=> {
-      const Authenticate = new Auth()
-      Authenticate.handleAuthentication(history).then((resp) => {
-        console.log(resp);
-        Authenticate.getProfile().then((profile) => {
-          console.log(profile)
-          return profile
-        })
-      })
-    }
-    componentDidMount(){
-        this.authorize()
-    }
-    render () {
-      return <WrappedComponent {...this.props} />
-    }
-  }
-}
-export default withAuth
+	return class extends React.Component {
+		render() {
+			const Authenticate = new Auth();
+			let isAuthenticated = Authenticate.isAuthenticated();
+			return isAuthenticated ? <WrappedComponent {...this.props} /> : <LoginForm />;
+		}
+	};
+};
+export default withAuth;

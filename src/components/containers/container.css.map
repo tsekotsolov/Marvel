@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,WAAW,CAAC;EACR,WAAW,EAAE,2BAA2B;EACxC,UAAU,EAAE,IAAI;CACjB;;AAED,AAAA,SAAS,CAAA;EACP,MAAM,EAAE,MAAM;CAIf;;AALD,AAEE,SAFO,CAEP,EAAE,CAAA;EACA,WAAW,EAAC,YAAY;CACzB;;AAGH,AACE,UADQ,CACR,EAAE,CAAC;EACD,SAAS,EAAE,IAAI;EACf,WAAW,EAAC,YAAY;CACzB",
+    "sources": [
+        "container.scss"
+    ],
+    "names": [],
+    "file": "container.css"
+}

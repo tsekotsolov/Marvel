@@ -1,48 +1,73 @@
-import React from 'react'
-import Navigation from '../navigation/Navigation'
-import Card from '../card/Card'
-import requester from '../../utils/requester'
+import React from 'react';
+import Navigation from '../navigation/Navigation';
+import Card from '../card/Card';
+import { connect } from 'react-redux';
+import SearchBar from '../forms/searchBar/SearchBar';
+import NoItems from '../notfound/NoItems';
+import './container.css'
 
 class Favorites extends React.Component {
+	state = {
+		filteredArray: [],
+		doesInputMatch: false
+	};
 
-    state = { 
-        itemsArray:[]
-    }
+	modifyFilteredArray = (filteredArray, doesInputMatch) => {
+		this.setState({
+			filteredArray,
+			doesInputMatch
+		});
+	};
 
-    componentDidMount(){
-        let favArray=this.props.appState.favArray
-        let itemsArray=[]
+	render() {
+		const favouritesArray = this.props.characters.filter((character) => this.props.favArray.includes(character.id));
 
-        for (const characterId of favArray) {   
-            requester.fetchCharacterName(characterId).then((response)=>{
-                itemsArray.push(response.data.results[0])
-                this.setState({
-                    itemsArray
-                })
-            })
-        }
-    }
-  render () {
-      
-    return (
-      <React.Fragment>
-        <Navigation />
-        <section className='characters'>
-          <div className='container text-center'>
-            <h2>Favorites</h2>
-            <div className='row'>
-              {this.state.itemsArray
-                ? <div className='row justify-content-left wrapper'>
-                  { this.state.itemsArray.map((character) => {
-                    return <Card key={character.id} {...character} manageFavArray={this.props.manageFavArray} appState={this.props.appState} />
-                  })}
-                </div>
-                : null}
-            </div>
-          </div>
-        </section>
-      </React.Fragment>
-    )
-  }
+		return (
+			<React.Fragment>
+				<Navigation />
+				<section className="characters">
+					<div className="container text-center">
+						<SearchBar modifyFilteredArray={this.modifyFilteredArray} />
+						<h2>Favorites</h2>
+						{!this.state.filteredArray.length && !this.state.doesInputMatch ? (
+							<div>
+								{favouritesArray.length ? (
+									<div className="row justify-content-left wrapper">
+										{favouritesArray.map((character) => {
+											return <Card key={character.id} {...character} />;
+										})}
+									</div>
+								) : (
+									<NoItems text="No Items to display" />
+								)}
+							</div>
+						) : (
+							<div className="row justify-content-left wrapper">
+								{this.state.filteredArray.length ? (
+									this.state.filteredArray.map((character) => {
+										return (
+											<Card
+												key={character.id}
+												modifyFilteredArray={this.modifyFilteredArray}
+												filteredArray={this.state.filteredArray}
+												{...character}
+											/>
+										);
+									})
+								) : (
+									<NoItems text="No Characters match your criteria" />
+								)}
+							</div>
+						)}
+					</div>
+				</section>
+			</React.Fragment>
+		);
+	}
 }
-export default Favorites
+
+const mapstateToProps = (state) => ({
+	favArray: state.favArray,
+	characters: state.characters
+});
+export default connect(mapstateToProps)(Favorites);

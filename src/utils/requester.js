@@ -1,50 +1,55 @@
 const requester = {
-  signIn: (data) => {
-    return fetch(
-      'https://marveltest.eu.auth0.com/dbconnections/signup',
-      {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ client_id: 'CpDbnN3C4h56IEGNpuKKvoueTSLORJl4',
-          email: data.email,
-          password: data.password,
-          connection: 'Username-Password-Authentication'
-        })
-      }
-    ).then(response => response.json())
+  signIn: data => {
+    return fetch("https://marveltest.eu.auth0.com/dbconnections/signup", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify({
+        client_id: "CpDbnN3C4h56IEGNpuKKvoueTSLORJl4",
+        email: data.email,
+        password: data.password,
+        connection: "Username-Password-Authentication"
+      })
+    }).then(response => response.json());
   },
 
-  fetchAllCharacters: (offset) => {
+  fetchAllCharacters: offset => {
     return fetch(
-      `https://gateway.marvel.com:443/v1/public/characters?offset=${offset}&apikey=a5a9a5c29885db559237f9ce40d2cac1`, {
-        method: 'GET',
+      `https://gateway.marvel.com:443/v1/public/characters?offset=${offset}&apikey=a5a9a5c29885db559237f9ce40d2cac1`,
+      {
+        method: "GET",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json"
         }
-      }).then(response => response.json())
+      }
+    ).then(response => response.json());
   },
 
   fetchDetailCharacter: (id, offset) => {
     return fetch(
       `https://gateway.marvel.com:443/v1/public/characters/${id}/comics?offset=${offset}&apikey=a5a9a5c29885db559237f9ce40d2cac1
-      `, {
-        method: 'GET',
+      `,
+      {
+        method: "GET",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json"
         }
-      }).then(response => response.json())
+      }
+    ).then(response => response.json());
   },
 
-  fetchCharacterName: (id) => {
+  fetchCharacterName: id => {
     return fetch(
-      `https://gateway.marvel.com:443/v1/public/characters/${id}?apikey=a5a9a5c29885db559237f9ce40d2cac1`, {
-        method: 'GET',
+      `https://gateway.marvel.com:443/v1/public/characters/${id}?apikey=a5a9a5c29885db559237f9ce40d2cac1`,
+      {
+        method: "GET",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json"
         }
-      }).then(response => response.json())
+      }
+    ).then(response => response.json());
   }
+};
 
-}
-
-export default requester
+export default requester;

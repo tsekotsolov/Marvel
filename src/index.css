@@ -1,10 +1,7 @@
 @font-face {
   font-family: "Avengeance";
-  src: url('../assets/fonts/AVENGEANCE.ttf');
+  src: url('./assets/fonts/AVENGEANCE.ttf');
 }
-@import '../components/forms/loginForm.scss';
-@import '../components/navigation/navigaton.scss';
-@import '../components/card/card.scss';
 
 body {
   font-family: Avengeance;
@@ -17,12 +14,4 @@ body {
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
   background-color: #FAFAFA;
-}
-
-.characters {
-  font-family: Verdana, Tahoma, sans-serif;
-  margin-top: 6rem;
-  h2 {
-    font-size: 3rem;
-  }
 }
