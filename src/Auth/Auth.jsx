@@ -1,4 +1,5 @@
 import auth0 from "auth0-js";
+import notification from "../utils/notifications/notifications";
 
 export default class Auth {
   auth0 = new auth0.WebAuth({
@@ -14,10 +15,11 @@ export default class Auth {
       { connection: "Username-Password-Authentication", email, password },
       (err, response) => {
         if (err) {
-          console.log(err);
+          notification("signInerror", err.description)();
           return;
         }
         console.log(response);
+        notification("signInSuccess")();
       }
     );
   };
@@ -31,8 +33,8 @@ export default class Auth {
         scope: "openid email profile"
       },
       (err, authResult) => {
-        console.log(authResult);
         if (err) {
+          notification("error")();
           console.log(err);
           return;
         }
@@ -40,10 +42,15 @@ export default class Auth {
     );
   };
 
+  logout = () => {
+    this.createNotification("logout")();
+  };
+
   handleAuthentication = history => {
     return new Promise((resolve, reject) => {
       this.auth0.parseHash((err, authResult) => {
         if (authResult) {
+          notification("success")();
           let expiresAt = JSON.stringify(
             authResult.expiresIn * 1000 + new Date().getTime()
           );

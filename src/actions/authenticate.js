@@ -1,11 +1,9 @@
-import {
-  AUTHENTICATE
-} from './types'
+import { AUTHENTICATE } from "./types";
 
 const authenticate = () => {
   return {
     type: AUTHENTICATE
-  }
-}
+  };
+};
 
-export default authenticate
+export default authenticate;

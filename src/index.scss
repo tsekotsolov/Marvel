@@ -1,0 +1,22 @@
+@font-face {
+  font-family: "Avengeance";
+  src: url('./assets/fonts/AVENGEANCE.ttf');
+}
+
+body {
+  font-family: Avengeance;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Avengeance", "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  background-color: #FAFAFA;
+}
+
+.notification-container {
+  margin-top: 8vh;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}

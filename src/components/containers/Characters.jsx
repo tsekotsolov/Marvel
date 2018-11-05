@@ -1,5 +1,5 @@
 import React from "react";
-import "./container.css";
+import "./container.scss";
 import Navigation from "../navigation/Navigation";
 import LoginForm from "../forms/loginForm/LoginForm";
 import Card from "../card/Card";

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import "./loginForm.css";
+import "./loginForm.scss";
+import "react-notifications/lib/notifications.css";
 import Button from "../../buttons/Button.jsx";
 import createFormObj from "../../../utils/createFormObj";
 import Auth from "../../../auth/Auth";

@@ -2,7 +2,7 @@ import React from "react";
 import { Suspense, lazy } from "react";
 import CardFooter from "./CardFooter";
 import Loading from "./Loading";
-import "./card.css";
+import "./card.scss";
 const Img = lazy(() => import("./Img"));
 
 const Card = props => {
@@ -25,13 +25,13 @@ const Card = props => {
           >
             <Img path={`${thumbnail.path}.${thumbnail.extension}`} />
           </Suspense>
-          {name ? (
+          {name && (
             <CardFooter
               {...props}
               filteredArray={props.filteredArray}
               modifyFilteredArray={props.modifyFilteredArray}
             />
-          ) : null}
+          )}
         </div>
       </div>
     </React.Fragment>

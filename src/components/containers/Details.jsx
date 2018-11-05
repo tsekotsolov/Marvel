@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./container.css";
+import "./container.scss";
 import Navigation from "../navigation/Navigation";
 import Card from "../card/Card";
 import { connect } from "react-redux";
@@ -52,6 +52,7 @@ class Details extends Component {
         <Navigation />
         <section className="characters">
           <div className="container text-center">
+            <h2>Details</h2>
             <div className="row justify-content-left wrapper">
               {this.props.details.map(comics => {
                 return <Card key={comics.id} {...comics} />;
@@ -65,7 +66,6 @@ class Details extends Component {
 }
 
 const mapstateToProps = state => ({
-  isAuth: state.isAuth,
   details: state.details,
   detailsOffset: state.detailsOffset
 });

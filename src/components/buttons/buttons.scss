@@ -6,14 +6,18 @@ button {
   margin: 0.2vw;
   width: 100px;
   cursor: pointer;
+
+  &:focus {
+    outline: 0;
+  }
 }
 
 .submit-button {
   color: white;
-  background-color: #F44336;
+  background-color: #f44336;
 }
 
 .signin-button {
   color: black;
-  background-color: #4CAF50;
+  background-color: #9DC59D;
 }

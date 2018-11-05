@@ -1,13 +1,15 @@
 import React from "react";
-import "./navigaton.css";
+import "./navigaton.scss";
 import { connect } from "react-redux";
 import authenticate from "../../actions/authenticate";
 import { Link } from "react-router-dom";
+import notification from "../../utils/notifications/notifications";
 
 let Navigation = props => {
   const logout = () => {
     props.dispatch(authenticate());
     localStorage.clear();
+    notification("logout")();
   };
   return (
     <nav className="navbar navbar-expand-sm fixed-top navbar-dark navbar-custom">
