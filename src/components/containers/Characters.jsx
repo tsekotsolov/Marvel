@@ -11,7 +11,7 @@ import { GET_CHARACTERS } from "../../actions/types";
 import { getCharacters } from "../../actions/characters";
 import { charactersOffset } from "../../actions/characters";
 
-class Characters extends React.Component {
+export class Characters extends React.Component {
   authorize = () => {
     const Authenticate = new Auth();
     Authenticate.handleAuthentication(history).then(resp => {
