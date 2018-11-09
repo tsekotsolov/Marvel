@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
-import isAuth from "./authReducer";
-import favArray from "./favouritesReducer";
-import characters from "./charactersReducer";
-import details from "./detailsReducer";
-import characterOffset from "./charactersOffsetReducer";
-import detailsOffset from "./detailsOffsetReducer";
+import isAuth from "./authReducer/authReducer";
+import favArray from "./favouritesReducer/favouritesReducer";
+import characters from "./charactersReducer/charactersReducer";
+import details from "./detailsReducer/detailsReducer";
+import characterOffset from "./charactersOffsetReducer/charactersOffsetReducer";
+import detailsOffset from "./detailsOffsetReducer/detailsOffsetReducer";
 
 let rootReducer = combineReducers({
   isAuth,

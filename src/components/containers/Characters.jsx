@@ -1,8 +1,5 @@
 import React from "react";
-import "./container.scss";
-import Navigation from "../navigation/Navigation";
 import LoginForm from "../forms/loginForm/LoginForm";
-import Card from "../card/Card";
 import Auth from "../../auth/Auth";
 import history from "../../history";
 import { connect } from "react-redux";
@@ -10,6 +7,7 @@ import authenticate from "../../actions/authenticate";
 import { GET_CHARACTERS } from "../../actions/types";
 import { getCharacters } from "../../actions/characters";
 import { charactersOffset } from "../../actions/characters";
+import Wrapper from "./Wrapper/Wrapper";
 
 export class Characters extends React.Component {
   authorize = () => {
@@ -55,19 +53,7 @@ export class Characters extends React.Component {
 
   render() {
     return this.props.isAuth ? (
-      <React.Fragment>
-        <Navigation />
-        <section className="characters">
-          <div className="container text-center">
-            <h2>Characters</h2>
-            <div className="row justify-content-left wrapper">
-              {this.props.characters.map(character => {
-                return <Card key={character.id} {...character} />;
-              })}
-            </div>
-          </div>
-        </section>
-      </React.Fragment>
+      <Wrapper title="Characters" data={this.props.characters} />
     ) : (
       <LoginForm />
     );

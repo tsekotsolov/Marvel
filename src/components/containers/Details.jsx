@@ -1,7 +1,4 @@
 import React, { Component } from "react";
-import "./container.scss";
-import Navigation from "../navigation/Navigation";
-import Card from "../card/Card";
 import { connect } from "react-redux";
 import { GET_DETAILS } from "./../../actions/types";
 import {
@@ -10,6 +7,7 @@ import {
   detailsOffset,
   clearDetailsOffset
 } from "../../actions/details";
+import Wrapper from "./Wrapper/Wrapper";
 
 class Details extends Component {
   componentDidMount() {
@@ -47,21 +45,7 @@ class Details extends Component {
   };
 
   render() {
-    return (
-      <React.Fragment>
-        <Navigation />
-        <section className="characters">
-          <div className="container text-center">
-            <h2>Details</h2>
-            <div className="row justify-content-left wrapper">
-              {this.props.details.map(comics => {
-                return <Card key={comics.id} {...comics} />;
-              })}
-            </div>
-          </div>
-        </section>
-      </React.Fragment>
-    );
+    return <Wrapper title="Details" data={this.props.details} />;
   }
 }
 

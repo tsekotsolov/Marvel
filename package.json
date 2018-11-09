@@ -20,6 +20,8 @@
     "react-test-renderer": "^16.6.0",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
+    "sinon": "^7.1.1",
+    "styled-components": "^4.0.3",
     "thunk": "0.0.1"
   },
   "scripts": {
@@ -38,6 +40,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "babel-plugin-styled-components": "^1.8.0",
     "eslint-config-prettier": "^3.1.0",
     "eslint-plugin-prettier": "^3.0.0",
     "prettier": "^1.14.3"

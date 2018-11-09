@@ -66,17 +66,12 @@ class LogInForm extends Component {
           </div>
           <div className="buttons-form-wrapper">
             <Button
+              submit
               text="Submit"
-              customClass="submit-button"
               dataName="signup"
               action={this.submitForm}
             />
-            <Button
-              text="Log In"
-              customClass="signin-button"
-              dataName="login"
-              action={this.submitForm}
-            />
+            <Button text="Log In" dataName="login" action={this.submitForm} />
           </div>
         </form>
       </div>

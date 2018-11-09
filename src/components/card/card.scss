@@ -1,5 +1,9 @@
 .card {
-	margin: 0.4rem;
+	margin: 0.8rem;
+
+	img {
+		width: 100%;
+	}
 
 	.card-text {
 		color: gray;
@@ -15,7 +19,19 @@
 	}
 
 	p.card-text {
-		font-size: 0.95rem;
+		font-size: 0.85rem;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+
+	}
+
+	p.card-text:hover {
+
+		white-space: wrap;
+		overflow: visible;
+		cursor: pointer;
+
 	}
 
 	.link-wrapper {

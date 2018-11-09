@@ -4,7 +4,7 @@ import Card from "../card/Card";
 import { connect } from "react-redux";
 import SearchBar from "../forms/searchBar/SearchBar";
 import NoItems from "../notfound/NoItems";
-import "./container.scss";
+import "./Wrapper/wrapper.scss";
 
 class Favorites extends React.Component {
   state = {
@@ -27,7 +27,7 @@ class Favorites extends React.Component {
     return (
       <React.Fragment>
         <Navigation />
-        <section className="characters">
+        <section className="wrapper">
           <div className="container text-center">
             <SearchBar
               modifyFilteredArray={this.modifyFilteredArray}

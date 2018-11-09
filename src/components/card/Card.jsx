@@ -6,7 +6,8 @@ import "./card.scss";
 const Img = lazy(() => import("./Img"));
 
 const Card = props => {
-  const { name, title, thumbnail } = props;
+  let { name, title, thumbnail } = props;
+
   return (
     <React.Fragment>
       <div className="col-md-3 col-sm-4 col-xs-12">
@@ -23,7 +24,11 @@ const Card = props => {
               <Loading first={"loader-wrapper-small"} second={"loader"} />
             }
           >
-            <Img path={`${thumbnail.path}.${thumbnail.extension}`} />
+            <Img
+              path={`${thumbnail.path}/standard_fantastic.${
+                thumbnail.extension
+              }`}
+            />
           </Suspense>
           {name && (
             <CardFooter
