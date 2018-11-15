@@ -13,11 +13,10 @@ let Navigation = props => {
   };
   return (
     <nav className="navbar navbar-expand-sm fixed-top navbar-dark navbar-custom">
-      <div>
-        <Link to="/characters" className="navbar-brand">
-          Marvel
-        </Link>
-      </div>
+      <Link to="/characters" className="navbar-brand">
+        Marvel
+      </Link>
+
       <div className="dropdown">
         <button
           className="btn btn-secondary dropdown-toggle"

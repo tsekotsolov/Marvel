@@ -1,24 +1,31 @@
 import React from "react";
-import "./wrapper.scss";
 import Navigation from "../../navigation/Navigation";
-import Card from "../../card/Card";
+import styled from "styled-components";
 
-function Wrapper(props) {
+const Wrapper = props => {
   return (
-    <React.Fragment>
+    <>
       <Navigation />
-      <section className="wrapper">
+      <StyledWrapper>
         <div className="container text-center">
           <h2>{props.title}</h2>
-          <div className="row justify-content-left wrapper">
-            {props.data.map(item => {
-              return <Card key={item.id} {...item} />;
-            })}
-          </div>
+          {props.children}
         </div>
-      </section>
-    </React.Fragment>
+      </StyledWrapper>
+    </>
   );
-}
+};
 
 export default Wrapper;
+
+const StyledWrapper = styled.section`
+  font-family: Verdana, Tahoma, sans-serif;
+  margin-top: 6rem;
+
+  .container {
+    h2 {
+      font-size: 3rem;
+      font-family: "Avengeance";
+    }
+  }
+`;

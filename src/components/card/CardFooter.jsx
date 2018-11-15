@@ -1,7 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import addRemoveFavourites from "../../actions/addRemoveFavourites";
+import StyledCard from "./StyledCard";
+import { Link } from "react-router-dom";
+
+const mapstateToProps = state => ({
+  favArray: state.favArray
+});
 
 const CardFooter = props => {
   const toggleFavourites = () => {
@@ -15,21 +20,19 @@ const CardFooter = props => {
   };
 
   return (
-    <div>
-      <div className="link-wrapper">
-        <Link to={`/character-details?${props.id}`}>Details</Link>
-        <Link to="#" onClick={toggleFavourites}>
-          {props.favArray.includes(props.id) ? (
-            <i className="fas fa-heart" />
-          ) : (
-            <i className="far fa-heart" />
-          )}
-        </Link>
-      </div>
-    </div>
+    <StyledCard.Footer>
+      <Link to={`/character-details?${props.id}`}>
+        <StyledCard.Link>Details</StyledCard.Link>
+      </Link>
+
+      <StyledCard.Link onClick={toggleFavourites}>
+        {props.favArray.includes(props.id) ? (
+          <i className="fas fa-heart" />
+        ) : (
+          <i className="far fa-heart" />
+        )}
+      </StyledCard.Link>
+    </StyledCard.Footer>
   );
 };
-const mapstateToProps = state => ({
-  favArray: state.favArray
-});
 export default connect(mapstateToProps)(CardFooter);

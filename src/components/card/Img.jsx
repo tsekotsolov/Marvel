@@ -1,7 +1,8 @@
 import React from "react";
+import StyledCard from "./StyledCard";
 
 const Img = props => {
-  return <img className="card-img-top" src={props.path} alt="Card cap" />;
+  return <StyledCard.Image src={props.path} alt="Card cap" />;
 };
 
 export default Img;

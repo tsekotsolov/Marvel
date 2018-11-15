@@ -4,7 +4,7 @@ exports[`<Button /> renders correctly 1`] = `
 initialize {
   "0": Object {
     "attribs": Object {
-      "class": "sc-bdVaJa hvGqXv",
+      "class": "sc-bdVaJa ierSCK",
     },
     "children": Array [
       Object {

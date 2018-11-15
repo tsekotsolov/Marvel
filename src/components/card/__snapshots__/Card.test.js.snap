@@ -19,42 +19,32 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "function",
+    "nodeType": "host",
     "props": Object {
       "children": <div
-        className="col-md-3 col-sm-4 col-xs-12"
+        className="card m-2"
       >
         <div
-          className="card"
+          className="card-body"
         >
-          <div
-            className="card-body"
-          >
-            <p
-              className="card-text"
-            >
-              true
-            </p>
-          </div>
-          <UNDEFINED
-            fallback={
-              <_default
-                first="loader-wrapper-small"
-                second="loader"
-              />
-            }
-          >
-            <UNDEFINED
-              path="undefined/standard_fantastic.undefined"
-            />
-          </UNDEFINED>
-          <Connect(CardFooter)
-            name={true}
-            path={true}
-            thumbnail={true}
-          />
+          <ForwardRef>
+            true
+          </ForwardRef>
         </div>
+        <UNDEFINED
+          fallback={<Loading />}
+        >
+          <UNDEFINED
+            path="undefined/standard_fantastic.undefined"
+          />
+        </UNDEFINED>
+        <Connect(CardFooter)
+          name={true}
+          path={true}
+          thumbnail={true}
+        />
       </div>,
+      "className": "col-md-3 col-sm-4 col-xs-12",
     },
     "ref": null,
     "rendered": Object {
@@ -62,25 +52,152 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
+        "children": Array [
+          <div
+            className="card-body"
+          >
+            <ForwardRef>
+              true
+            </ForwardRef>
+          </div>,
+          <UNDEFINED
+            fallback={<Loading />}
+          >
+            <UNDEFINED
+              path="undefined/standard_fantastic.undefined"
+            />
+          </UNDEFINED>,
+          <Connect(CardFooter)
+            name={true}
+            path={true}
+            thumbnail={true}
+          />,
+        ],
+        "className": "card m-2",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <ForwardRef>
+              true
+            </ForwardRef>,
+            "className": "card-body",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": "true",
+            },
+            "ref": null,
+            "rendered": "true",
+            "type": Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "attrs": undefined,
+              "componentStyle": ComponentStyle {
+                "componentId": "sc-htpNat",
+                "isStatic": true,
+                "rules": Array [
+                  "
+  color: gray;
+  margin: 0;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &:hover {
+    white-space: wrap;
+    overflow: visible;
+    cursor: pointer;
+  }
+",
+                ],
+              },
+              "displayName": "styled.p",
+              "render": [Function],
+              "styledComponentId": "sc-htpNat",
+              "target": "p",
+              "toString": [Function],
+              "warnTooManyClasses": [Function],
+              "withComponent": [Function],
+            },
+          },
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": <UNDEFINED
+              path="undefined/standard_fantastic.undefined"
+            />,
+            "fallback": <Loading />,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "path": "undefined/standard_fantastic.undefined",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": Object {
+              "$$typeof": Symbol(react.lazy),
+              "_ctor": [Function],
+              "_result": null,
+              "_status": -1,
+            },
+          },
+          "type": Symbol(react.suspense),
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "filteredArray": undefined,
+            "modifyFilteredArray": undefined,
+            "name": true,
+            "path": true,
+            "thumbnail": true,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
         "children": <div
-          className="card"
+          className="card m-2"
         >
           <div
             className="card-body"
           >
-            <p
-              className="card-text"
-            >
+            <ForwardRef>
               true
-            </p>
+            </ForwardRef>
           </div>
           <UNDEFINED
-            fallback={
-              <_default
-                first="loader-wrapper-small"
-                second="loader"
-              />
-            }
+            fallback={<Loading />}
           >
             <UNDEFINED
               path="undefined/standard_fantastic.undefined"
@@ -104,19 +221,12 @@ ShallowWrapper {
             <div
               className="card-body"
             >
-              <p
-                className="card-text"
-              >
+              <ForwardRef>
                 true
-              </p>
+              </ForwardRef>
             </div>,
             <UNDEFINED
-              fallback={
-                <_default
-                  first="loader-wrapper-small"
-                  second="loader"
-                />
-              }
+              fallback={<Loading />}
             >
               <UNDEFINED
                 path="undefined/standard_fantastic.undefined"
@@ -128,7 +238,7 @@ ShallowWrapper {
               thumbnail={true}
             />,
           ],
-          "className": "card",
+          "className": "card m-2",
         },
         "ref": null,
         "rendered": Array [
@@ -137,25 +247,52 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": <p
-                className="card-text"
-              >
+              "children": <ForwardRef>
                 true
-              </p>,
+              </ForwardRef>,
               "className": "card-body",
             },
             "ref": null,
             "rendered": Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "host",
+              "nodeType": "function",
               "props": Object {
                 "children": "true",
-                "className": "card-text",
               },
               "ref": null,
               "rendered": "true",
-              "type": "p",
+              "type": Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "attrs": undefined,
+                "componentStyle": ComponentStyle {
+                  "componentId": "sc-htpNat",
+                  "isStatic": true,
+                  "rules": Array [
+                    "
+  color: gray;
+  margin: 0;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &:hover {
+    white-space: wrap;
+    overflow: visible;
+    cursor: pointer;
+  }
+",
+                  ],
+                },
+                "displayName": "styled.p",
+                "render": [Function],
+                "styledComponentId": "sc-htpNat",
+                "target": "p",
+                "toString": [Function],
+                "warnTooManyClasses": [Function],
+                "withComponent": [Function],
+              },
             },
             "type": "div",
           },
@@ -167,10 +304,7 @@ ShallowWrapper {
               "children": <UNDEFINED
                 path="undefined/standard_fantastic.undefined"
               />,
-              "fallback": <_default
-                first="loader-wrapper-small"
-                second="loader"
-              />,
+              "fallback": <Loading />,
             },
             "ref": null,
             "rendered": Object {
@@ -210,206 +344,6 @@ ShallowWrapper {
         "type": "div",
       },
       "type": "div",
-    },
-    "type": Symbol(react.fragment),
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "function",
-      "props": Object {
-        "children": <div
-          className="col-md-3 col-sm-4 col-xs-12"
-        >
-          <div
-            className="card"
-          >
-            <div
-              className="card-body"
-            >
-              <p
-                className="card-text"
-              >
-                true
-              </p>
-            </div>
-            <UNDEFINED
-              fallback={
-                <_default
-                  first="loader-wrapper-small"
-                  second="loader"
-                />
-              }
-            >
-              <UNDEFINED
-                path="undefined/standard_fantastic.undefined"
-              />
-            </UNDEFINED>
-            <Connect(CardFooter)
-              name={true}
-              path={true}
-              thumbnail={true}
-            />
-          </div>
-        </div>,
-      },
-      "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": <div
-            className="card"
-          >
-            <div
-              className="card-body"
-            >
-              <p
-                className="card-text"
-              >
-                true
-              </p>
-            </div>
-            <UNDEFINED
-              fallback={
-                <_default
-                  first="loader-wrapper-small"
-                  second="loader"
-                />
-              }
-            >
-              <UNDEFINED
-                path="undefined/standard_fantastic.undefined"
-              />
-            </UNDEFINED>
-            <Connect(CardFooter)
-              name={true}
-              path={true}
-              thumbnail={true}
-            />
-          </div>,
-          "className": "col-md-3 col-sm-4 col-xs-12",
-        },
-        "ref": null,
-        "rendered": Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": Array [
-              <div
-                className="card-body"
-              >
-                <p
-                  className="card-text"
-                >
-                  true
-                </p>
-              </div>,
-              <UNDEFINED
-                fallback={
-                  <_default
-                    first="loader-wrapper-small"
-                    second="loader"
-                  />
-                }
-              >
-                <UNDEFINED
-                  path="undefined/standard_fantastic.undefined"
-                />
-              </UNDEFINED>,
-              <Connect(CardFooter)
-                name={true}
-                path={true}
-                thumbnail={true}
-              />,
-            ],
-            "className": "card",
-          },
-          "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": <p
-                  className="card-text"
-                >
-                  true
-                </p>,
-                "className": "card-body",
-              },
-              "ref": null,
-              "rendered": Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "true",
-                  "className": "card-text",
-                },
-                "ref": null,
-                "rendered": "true",
-                "type": "p",
-              },
-              "type": "div",
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "function",
-              "props": Object {
-                "children": <UNDEFINED
-                  path="undefined/standard_fantastic.undefined"
-                />,
-                "fallback": <_default
-                  first="loader-wrapper-small"
-                  second="loader"
-                />,
-              },
-              "ref": null,
-              "rendered": Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "function",
-                "props": Object {
-                  "path": "undefined/standard_fantastic.undefined",
-                },
-                "ref": null,
-                "rendered": null,
-                "type": Object {
-                  "$$typeof": Symbol(react.lazy),
-                  "_ctor": [Function],
-                  "_result": null,
-                  "_status": -1,
-                },
-              },
-              "type": Symbol(react.suspense),
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "class",
-              "props": Object {
-                "filteredArray": undefined,
-                "modifyFilteredArray": undefined,
-                "name": true,
-                "path": true,
-                "thumbnail": true,
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
-          ],
-          "type": "div",
-        },
-        "type": "div",
-      },
-      "type": Symbol(react.fragment),
     },
   ],
   Symbol(enzyme.__options__): Object {
