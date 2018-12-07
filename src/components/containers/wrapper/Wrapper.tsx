@@ -2,7 +2,12 @@ import React from "react";
 import Navigation from "../../navigation/Navigation";
 import styled from "styled-components";
 
-const Wrapper = props => {
+interface IProps {
+title: string;
+children:React.ReactNode;
+}
+
+const Wrapper = (props:IProps) => {
   return (
     <>
       <Navigation />

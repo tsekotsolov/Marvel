@@ -3,12 +3,7 @@
     color: rgba(244, 67, 54, 1);
     position: relative;
 
-    i {
-        position: absolute;
-        top: 0.5rem;
-        left: 10rem;
-    }
-
+  
     input {
         -webkit-transition: all 0.30s ease-in-out;
         -moz-transition: all 0.30s ease-in-out;
@@ -21,12 +16,12 @@
 
         &::placeholder {
             color: lightgrey;
-            font-size: 0.8rem;
+            font-size: 12px;
         }
 
         border: none;
         border-bottom: 0.5px solid rgba(244, 67, 54, 1);
-        font-size: 0.8rem;
+        font-size: 12px;
         color:rgba(244, 67, 54, 1);
 
     }

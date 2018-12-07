@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import LoginForm from "../components/forms/loginForm/LoginForm.tsx";
 import Characters from "../components/containers/characters/Characters.tsx";
 import Details from "../components/containers/details/Details.tsx";
-import Favorites from "../components/containers/favourites/Favorites.jsx";
+import Favorites from "../components/containers/favourites/Favorites.tsx";
 import NotFound from "../components/notfound/NotFound";
 import Auth from "../auth/Auth";
 
@@ -28,5 +28,3 @@ const Router = props => {
 };
 
 export default Router;
-
-// Some test info

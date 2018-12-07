@@ -5,22 +5,34 @@ import SearchBar from "../../forms/searchBar/SearchBar";
 import NoItems from "../../notfound/NoItems";
 import Wrapper from "../wrapper/Wrapper";
 
+interface IProps {
+  favArray: number[];
+  characters: CharacterItem[];
+}
 
+interface IState {
+  filteredArray: CharacterItem[];
+  doesInputMatch: boolean;
+}
 
+type CharacterItem = { id: number; name: string };
+type FavouritesArray = CharacterItem[];
 
-
-const mapstateToProps = (state) => ({
+const mapstateToProps = (state: any) => ({
   favArray: state.favArray,
   characters: state.characters
 });
 
-class Favorites extends React.Component {
-  state = {
+class Favorites extends React.Component<IProps, IState> {
+  state: IState = {
     filteredArray: [],
     doesInputMatch: false
   };
 
-  modifyFilteredArray = (filteredArray, doesInputMatch) => {
+  modifyFilteredArray = (
+    filteredArray: CharacterItem[],
+    doesInputMatch: boolean
+  ) => {
     this.setState({
       filteredArray,
       doesInputMatch
@@ -28,8 +40,8 @@ class Favorites extends React.Component {
   };
 
   render() {
-    const favouritesArray = this.props.characters.filter(
-      (character) => this.props.favArray.includes(character.id)
+    const favouritesArray: FavouritesArray = this.props.characters.filter(
+      character => this.props.favArray.includes(character.id)
     );
 
     return (
@@ -42,7 +54,7 @@ class Favorites extends React.Component {
           <div>
             {favouritesArray.length ? (
               <div className="row justify-content-left">
-                {favouritesArray.map(character => {
+                {favouritesArray.map((character: CharacterItem) => {
                   return <Card key={character.id} {...character} />;
                 })}
               </div>
@@ -53,7 +65,7 @@ class Favorites extends React.Component {
         ) : (
           <div className="row justify-content-left">
             {this.state.filteredArray.length ? (
-              this.state.filteredArray.map(character => {
+              this.state.filteredArray.map((character: CharacterItem) => {
                 return (
                   <Card
                     key={character.id}

@@ -14,10 +14,10 @@ interface IProps {
   dispatch: (p: any) => void;
   detailsOffset: (p: () => number) => void;
   details: [];
-  location:any
+  location: any;
 }
 
-type DetailsItem = { id: string };
+type DetailsItem = { id: number };
 
 const mapstateToProps = (state: any) => ({
   details: state.details,
@@ -42,7 +42,7 @@ class Details extends React.Component<IProps> {
     window.removeEventListener("scroll", this.onScroll, false);
   }
 
-  onScroll = (event:any) => {
+  onScroll = (event: any) => {
     if (
       event.target.scrollingElement.scrollHeight -
         event.target.scrollingElement.scrollTop <=
@@ -63,7 +63,7 @@ class Details extends React.Component<IProps> {
     return (
       <Wrapper title="Details">
         <div className="row justify-content-left">
-          {this.props.details.map((item:DetailsItem)  => {
+          {this.props.details.map((item: DetailsItem) => {
             return <Card key={item.id} {...item} />;
           })}
         </div>

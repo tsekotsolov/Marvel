@@ -1,11 +1,21 @@
 import React from "react";
 import "./search-bar.scss";
 
-const SearchBar = props => {
-  const catchData = event => {
+type CharacterItem = { id: number; name: string };
+
+interface IProps {
+  favouritesArray: CharacterItem[];
+  modifyFilteredArray: (
+    filteredArray: CharacterItem[],
+    doesInputMatch: boolean
+  ) => void;
+}
+
+const SearchBar = (props: IProps) => {
+  const catchData = (event: any) => {
     const name = event.target.value;
-    const filteredArray = props.favouritesArray.filter(character =>
-      character.name.startsWith(name)
+    const filteredArray = props.favouritesArray.filter(
+      (character: CharacterItem) => character.name.startsWith(name)
     );
     name
       ? props.modifyFilteredArray(filteredArray, true)
