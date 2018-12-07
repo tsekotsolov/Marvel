@@ -8,7 +8,7 @@ import { GET_CHARACTERS } from "../../../actions/types";
 import { getCharacters } from "../../../actions/characters";
 import { charactersOffset } from "../../../actions/characters";
 import Card from "../../card/Card";
-import Wrapper from "../wrapper/Wrapper";
+import Wrapper from "../Wrapper/Wrapper";
 
 interface IProps {
   dispatch: (p: any) => void;

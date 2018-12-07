@@ -3,7 +3,7 @@ import Card from "../../card/Card";
 import { connect } from "react-redux";
 import SearchBar from "../../forms/searchBar/SearchBar";
 import NoItems from "../../notfound/NoItems";
-import Wrapper from "../wrapper/Wrapper";
+import Wrapper from "../Wrapper/Wrapper";
 
 
 

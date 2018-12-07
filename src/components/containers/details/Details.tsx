@@ -8,7 +8,7 @@ import {
   clearDetailsOffset
 } from "../../../actions/details";
 import Card from "../../card/Card";
-import Wrapper from "../wrapper/Wrapper";
+import Wrapper from "../Wrapper/Wrapper";
 
 interface IProps {
   dispatch: (p: any) => void;
