@@ -1,6 +1,7 @@
 import React from "react";
 import "./search-bar.scss";
 
+
 const SearchBar = props => {
   const catchData = event => {
     const name = event.target.value;
