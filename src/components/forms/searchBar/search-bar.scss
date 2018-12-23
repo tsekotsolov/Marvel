@@ -2,6 +2,7 @@
     text-align: left;
     color: rgba(244, 67, 54, 1);
     position: relative;
+    margin-bottom: 1rem;
 
     i {
         position: absolute;
@@ -18,16 +19,14 @@
         padding: 3px 0px 3px 3px;
         margin: 5px 1px 3px 0px;
         background-color: transparent;
-
-        &::placeholder {
-            color: lightgrey;
-            font-size: 0.8rem;
-        }
-
         border: none;
         border-bottom: 0.5px solid rgba(244, 67, 54, 1);
         font-size: 0.8rem;
         color:rgba(244, 67, 54, 1);
 
+        &::placeholder {
+            color: lightgrey;
+            font-size: 0.8rem;
+        }
     }
 }
